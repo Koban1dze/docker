@@ -1,0 +1,13 @@
+version: '3'
+services:
+  flask:
+    build: ./
+    container_name: cont_dict
+    restart: on-failure
+    environment:
+      - FLASK_APP=app.py
+    volumes:
+      - ./:/server
+    ports:
+      - "5000:5000"
+    command: flask run
